@@ -1,0 +1,16 @@
+stages:
+  - test
+  - quality
+
+php_test:
+  stage: test
+  image: php:8.2
+
+  script:
+    - php -v
+    - php your_test_file.php
+
+sonarqube_check:
+  stage: quality
+  script:
+    - sonar-scanner
